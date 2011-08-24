@@ -58,4 +58,24 @@ describe("Roman Numerals", function() {
     it("number 40 returns RN XL", function() {
         expect(toRN(40)).toEqual('XL');
     });
+
+    it("number 49 returns RN XLIX", function() {
+        expect(toRN(49)).toEqual('XLIX');
+    });
+
+    it("number 99 returns RN XCIX", function() {
+        expect(toRN(99)).toEqual('XCIX');
+    });
+
+    it("number 176 returns RN CLXXVI", function() {
+        expect(toRN(176)).toEqual('CLXXVI');
+    });
+
+    it("number 492 returns RN DXCII", function() {
+        expect(toRN(492)).toEqual('CDXCII');
+    });
+
+    it("number 743 returns RN DCCXLIII", function() {
+        expect(toRN(743)).toEqual('DCCXLIII');
+    });
 });
