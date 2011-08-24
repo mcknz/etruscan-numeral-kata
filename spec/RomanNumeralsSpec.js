@@ -6,6 +6,10 @@ describe("Jasmine Test Runner", function() {
   });
 });
 
+function toRN(n) {
+    return n.toRomanNumeral();
+}
+
 describe("Roman Numerals", function() {
   it("number 1 returns RN I", function() {
         expect(toRN(1)).toEqual('I');
@@ -77,5 +81,13 @@ describe("Roman Numerals", function() {
 
     it("number 743 returns RN DCCXLIII", function() {
         expect(toRN(743)).toEqual('DCCXLIII');
+    });
+
+    it("number 1999 returns RN MCMXCIX", function() {
+        expect(toRN(1999)).toEqual('MCMXCIX');
+    });
+
+    it("number 4738 returns RN MMMMDCCXXXVIII", function() {
+        expect(toRN(4738)).toEqual('MMMMDCCXXXVIII');
     });
 });
