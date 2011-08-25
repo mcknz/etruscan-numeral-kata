@@ -1,18 +1,22 @@
-Number.prototype.toRomanNumeral = r;
-function r() {
-    var rn = '';
-    var subTotal = this.valueOf();
-    while (subTotal >= 1000) {
-        rn += 'M';
-        subTotal -= 1000;
-    }
-    return doPhase(subTotal, rn, 2);
-}
-
+Number.prototype.toRomanNumeral =
 function doPhase(n, rn, multiplier) {
-    if (multiplier < 0) {
-        multiplier = 0;
+    var u = "undefined";
+    n = typeof n === u ? this.valueOf() : n;
+    rn = typeof rn === u ? '' : rn;
+    multiplier = typeof multiplier === u ? 3 : multiplier;
+    
+    if(multiplier == 3) {
+        while (n >= 1000) {
+            rn += 'M';
+            n -= 1000;
+        }
+        multiplier--;
+    } else {
+        if(multiplier < 0) {
+            multiplier = 0;
+        }
     }
+
     var numbers = [9, 5, 4, 1];
     var symbols = [
         ['IX', 'V', 'IV', 'I'],
