@@ -1,24 +1,31 @@
 Number.prototype.toRomanNumeral = r;
-function r () {
-    var rn, symbols, numbers, subTotal, count;
-    rn = '';
-    symbols = ['M', 'CM', 'D', 'CD', 'C', 'XC','L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
-    numbers = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
-    subTotal = this;
-    count = 0;
+function r() {
+    var subTotal = this.valueOf();
+    while (subTotal >= 1000) {
+        rn += 'M';
+        subTotal -= 1000;
+    }
+    return doPhase(subTotal, '', count);
+}
 
-    while (subTotal > 0) {
-        if (subTotal >= numbers[count]) {
-            rn += symbols[count];
-            subTotal -= numbers[count];
+function doPhase(n, rn, multiplier) {
+    var numbers = [9, 5, 4, 1];
+    var symbols = [
+        ['IX', 'V', 'IV', 'I'],
+        ['XC','L', 'XL', 'X'],
+        ['CM', 'D', 'CD', 'C']
+    ];
+    var count = 0;
+    var p = Math.pow(10,multiplier);
+    var nMulti = (numbers[count] * p);
+    while (n >= nMulti) {
+        nMulti = (numbers[count] * p);
+        if (n >= nMulti) {
+            rn += symbols[multiplier][count];
+            n -= nMulti;
         } else {
             count++;
         }
     }
-
     return rn;
-}
-
-function doRound(n) {
-    numbers = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
 }
