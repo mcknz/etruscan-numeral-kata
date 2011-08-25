@@ -90,4 +90,8 @@ describe("Roman Numerals", function() {
     it("number 4738 returns RN MMMMDCCXXXVIII", function() {
         expect(toRN(4738)).toEqual('MMMMDCCXXXVIII');
     });
+
+    it("is tweetable", function() {
+        expect(o.toString().length).toBeLessThan(141);
+    });
 });
