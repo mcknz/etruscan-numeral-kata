@@ -7,7 +7,8 @@ describe("Jasmine Test Runner", function() {
 });
 
 function toRN(n) {
-    return n.toRomanNumeral();
+    return r(n);
+    //return n.toRomanNumeral();
 }
 
 describe("Roman Numerals", function() {
@@ -92,6 +93,6 @@ describe("Roman Numerals", function() {
     });
 
     it("is tweetable", function() {
-        expect(o.toString().length).toBeLessThan(141);
+        expect(r.toString().length).toBeLessThan(141);
     });
 });
